@@ -1,12 +1,12 @@
 Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
-Version:	1.10.2.20031223
+Version:	1.10.4.20040125
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	a4046c5af8882419deec97eea735ec96
+# Source0-md5:	812e3f281eac8e8b9515e8ce29c9e331
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-etc_dir.patch
