@@ -1,16 +1,16 @@
 Summary:	multiplayer 3D tank battle game
 Name:		bzflag
-Version:	1.7d.9
+Version:	1.7e1
 Release:	1
 Copyright:	Chris Schoeneman 1993-1999
 Group:		X11/Games/Video
 Group(pl):	X11/Gry/Wideo
-Source0:	ftp://ftp.linuxgames.com/%{name}/src/%{name}-%{version}.src.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/bzflag/%{name}_%{version}.tar.gz
 Patch1:		bzflag-paths.patch
 Patch2:		bzflag-opts.patch
 Patch3:		bzflag-reuse_addr.patch
 Patch4:		bzflag-printscore.patch
-URL:		http://bzflag.linuxgames.com
+URL:		http://bzflag.org/
 BuildRequires:	XFree86-OpenGL-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
