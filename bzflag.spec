@@ -37,16 +37,15 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 
 %build
 %{__make} linux # other, arch-dependent targets differ only in optymalization flags
-
 %{__make} COPTFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O0 -g}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag,%{_applnkdir}/Games,%{_pixmapsdir}},%{_mandir}/man6}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag,%{_applnkdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
 
-install bin/* ${RPM_BUILD_ROOT}%{_bindir}
-install man/*.6s ${RPM_BUILD_ROOT}%{_mandir}/man6
-install data/* ${RPM_BUILD_ROOT}%{_datadir}/bzflag
+install bin/* $RPM_BUILD_ROOT%{_bindir}
+install man/*.6s $RPM_BUILD_ROOT%{_mandir}/man6
+install data/* $RPM_BUILD_ROOT%{_datadir}/bzflag
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
 install package/rpm/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 
