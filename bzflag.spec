@@ -5,8 +5,6 @@ Version:	1.7e2
 Release:	2
 License:	Chris Schoeneman 1993-1999
 Group:		X11/Applications/Games
-Group(de):	X11/Applikationen/Spiele
-Group(pl):	X11/Aplikacje/Gry
 Source0:	ftp://ftp1.sourceforge.net/pub/sourceforge/bzflag/%{name}-%{version}.tgz
 Source1:	%{name}.desktop
 Patch0:		%{name}-paths.patch
