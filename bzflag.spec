@@ -3,16 +3,18 @@ Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
 Version:	1.10.2.20031223
 Release:	0.1
-License:	Chris Schoeneman 1993-1999
+License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	a4046c5af8882419deec97eea735ec96
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch4:		%{name}-etc_dir.patch
+Patch0:		%{name}-etc_dir.patch
 Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,14 +31,13 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 
 %prep
 %setup -q
-#%patch4 -p1
+#%patch0 -p1
 
 %build
-
 %{__aclocal}
 %{__autoheader}
-%{__automake} --add-missing
 %{__autoconf}
+%{__automake}
 %configure
 
 %{__make}
@@ -44,11 +45,14 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
-	$RPM_BUILD_ROOT{%{_desktopdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
+	$RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/Games
+# to be changed after adding Categories
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
+#install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -60,5 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/bzflag
-%{_desktopdir}/Games/*
+%{_applnkdir}/Games/*.desktop
+#%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
