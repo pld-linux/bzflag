@@ -1,4 +1,4 @@
-Summary:	multiplayer 3D tank battle game
+Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
 Version:	1.7e6
@@ -53,14 +53,12 @@ install data/* $RPM_BUILD_ROOT%{_datadir}/bzflag
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf README BUGS RELNOTES TODO ChangeLog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README BUGS RELNOTES TODO ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/bzflag
