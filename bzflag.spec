@@ -2,7 +2,7 @@ Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
 Version:	1.7g0
-Release:	2
+Release:	3
 License:	Chris Schoeneman 1993-1999
 Group:		X11/Applications/Games
 Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.tgz
@@ -39,8 +39,9 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 %patch4 -p1
 
 %build
-%{__make} linux # other, arch-dependent targets differ only in optymalization flags
-%{__make} COPTFLAGS="%{rpmcflags}"
+%{__make} INSTALL_DATA_DIR=%{_datadir}/bzflag linux
+# other, arch-dependent targets differ only in optymalization flags
+%{__make} INSTALL_DATA_DIR=%{_datadir}/bzflag  COPTFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
