@@ -1,0 +1,78 @@
+diff -Nru bzflag-1.7g0/src/bzflag/bzflag.cxx bzflag-1.7g0.new/src/bzflag/bzflag.cxx
+--- bzflag-1.7g0/src/bzflag/bzflag.cxx	Thu Dec  5 17:22:44 2002
++++ bzflag-1.7g0.new/src/bzflag/bzflag.cxx	Sun Mar 23 19:21:11 2003
+@@ -117,12 +117,18 @@
+ #if !defined(_WIN32) & !defined(macintosh)
+ 
+   BzfString name;
+-  struct passwd* pwent = getpwuid(getuid());
+-  if (pwent && pwent->pw_dir) {
+-    name += BzfString(pwent->pw_dir);
+-    name += "/";
++  char *etc_dir = getenv("ETC_DIR");
++  if (etc_dir != NULL) {
++    name += BzfString(etc_dir);
++    name += "/bzflag";
++  } else {
++    struct passwd* pwent = getpwuid(getuid());
++    if (pwent && pwent->pw_dir) {
++      name += BzfString(pwent->pw_dir);
++      name += "/";
++    }
++    name += ".bzflag";
+   }
+-  name += ".bzflag";
+ 
+   // add in hostname on UNIX
+   if (getenv("HOST")) {
+@@ -168,12 +174,18 @@
+ static BzfString	getConfigFileName2()
+ {
+   BzfString name;
+-  struct passwd* pwent = getpwuid(getuid());
+-  if (pwent && pwent->pw_dir) {
+-    name += BzfString(pwent->pw_dir);
+-    name += "/";
++  const char *etc_dir = getenv("ETC_DIR");
++  if (etc_dir) {
++    name += BzfString(etc_dir);
++    name += "/bzflag";
++  } else {
++    struct passwd* pwent = getpwuid(getuid());
++    if (pwent && pwent->pw_dir) {
++      name += BzfString(pwent->pw_dir);
++      name += "/";
++    }
++    name += ".bzflag";
+   }
+-  name += ".bzflag";
+   return name;
+ }
+ #endif
+diff -Nru bzflag-1.7g0/src/bzflag/playing.cxx bzflag-1.7g0.new/src/bzflag/playing.cxx
+--- bzflag-1.7g0/src/bzflag/playing.cxx	Sat Dec  7 08:25:08 2002
++++ bzflag-1.7g0.new/src/bzflag/playing.cxx	Sun Mar 23 19:23:20 2003
+@@ -3419,12 +3419,18 @@
+   return "";
+ #else
+   BzfString name;
+-  struct passwd *pwent = getpwuid(getuid());
+-  if (pwent && pwent->pw_dir) {
+-    name += BzfString(pwent->pw_dir);
+-    name += "/";
++  const char *etc_dir = getenv("ETC_DIR");
++  if (etc_dir) {
++    name += BzfString(etc_dir);
++    name += "/bzflag-cache";
++  } else {
++    struct passwd *pwent = getpwuid(getuid());
++    if (pwent && pwent->pw_dir) {
++      name += BzfString(pwent->pw_dir);
++      name += "/";
++    }
++    name += ".bzflag-cache";
+   }
+-  name += ".bzflag-cache";
+ 
+   // add in hostname on UNIX
+   if (getenv("HOST")) {
