@@ -2,7 +2,7 @@ Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
 Version:	1.10.6.20040515
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -46,13 +46,13 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
-	$RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
+	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},%{_mandir}/man6}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 # to be changed after adding Categories
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
@@ -65,6 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/bzflag
-%{_applnkdir}/Games/*.desktop
+%{_desktopdir}/*.desktop
 #%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
