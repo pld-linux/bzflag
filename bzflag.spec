@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README BUGS RELNOTES TODO ChangeLog
 %attr(755,root,root) %{_bindir}/bzflag
-%{_mandir}/man6/bzflag.6.gz
+%{_mandir}/man6/bzflag.6*
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %dir %{_datadir}/%{name}
@@ -99,9 +99,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sv) %{_datadir}/%{name}/l10n/%{name}_sv.po
 
 %files server
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bzadmin
 %attr(755,root,root) %{_bindir}/bzfrelay
 %attr(755,root,root) %{_bindir}/bzfs
-%{_mandir}/man6/bzadmin.6.gz
+%{_mandir}/man6/bzadmin.6*
 %{_mandir}/man6/bzf[!l]*
-%{_mandir}/man6/bzfls.6.gz
+%{_mandir}/man6/bzfls.6*
