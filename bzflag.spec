@@ -13,6 +13,7 @@ Patch0:		%{name}-etc_dir.patch
 Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
+BuildRequires:	adns-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 Requires:	OpenGL
