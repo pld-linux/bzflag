@@ -6,13 +6,14 @@ Release:	3
 License:	Chris Schoeneman 1993-1999
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tgz
+# Source0-md5:	689009fa98416ac1abba4677870c7b9f
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-paths.patch
 Patch1:		%{name}-CFLAGS.patch
 #Patch2:		%{name}-printscore.patch
 Patch3:		%{name}-lookups.patch
-Patch4:   %{name}-etc_dir.patch
+Patch4:		%{name}-etc_dir.patch
 Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
