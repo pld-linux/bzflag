@@ -12,7 +12,7 @@ Patch0:		%{name}-paths.patch
 Patch1:		%{name}-CFLAGS.patch
 #Patch2:		%{name}-printscore.patch
 Patch3:		%{name}-lookups.patch
-Patch4:   %{name}-home_etc.patch
+Patch4:   %{name}-etc_dir.patch
 Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
