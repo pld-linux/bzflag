@@ -7,7 +7,7 @@ License:	Chris Schoeneman 1993-1999
 Group:		X11/Applications/Games
 Source0:	ftp://ftp1.sourceforge.net/pub/sourceforge/bzflag/%{name}-%{version}.tgz
 Source1:	%{name}.desktop
-Source1:	%{name}.png
+Source2:	%{name}.png
 Patch0:		%{name}-paths.patch
 Patch1:		%{name}-CFLAGS.patch
 Patch2:		%{name}-printscore.patch
