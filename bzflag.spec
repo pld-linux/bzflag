@@ -1,12 +1,12 @@
 Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
-Version:	1.10.8.20041007
+Version:	2.0.0.20050117
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	59d88fc8f8fe78bc6495e4c19c383323
+# Source0-md5:	16da32cfaac130bf68ca156d0dec2b2e
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-etc_dir.patch
@@ -80,8 +80,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %dir %{_datadir}/%{name}
+%{_datadir}/%{name}/*.xpm
 %{_datadir}/%{name}/*.wav
 %{_datadir}/%{name}/*.png
+%dir %{_datadir}/%{name}/fonts
+%{_datadir}/%{name}/fonts/*
 %dir %{_datadir}/%{name}/l10n
 %{_datadir}/%{name}/l10n/%{name}_xx.po
 %{_datadir}/%{name}/l10n/ISO-639-2_values_8bits.txt
@@ -101,8 +104,8 @@ rm -rf $RPM_BUILD_ROOT
 %files server
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bzadmin
-%attr(755,root,root) %{_bindir}/bzfrelay
+#attr(755,root,root) %{_bindir}/bzfrelay
 %attr(755,root,root) %{_bindir}/bzfs
+%{_mandir}/man5/bzw.5*
 %{_mandir}/man6/bzadmin.6*
 %{_mandir}/man6/bzf[!l]*
-%{_mandir}/man6/bzfls.6*
