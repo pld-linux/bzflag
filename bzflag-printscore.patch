@@ -1,0 +1,14 @@
+
+This patch enables "-printscore" bzfs option
+
+diff -durN bzflag.orig/src/bzfs/bzfs.cxx bzflag/src/bzfs/bzfs.cxx
+--- bzflag.orig/src/bzfs/bzfs.cxx	Tue Jan 25 16:31:15 2000
++++ bzflag/src/bzfs/bzfs.cxx	Wed Apr 19 12:01:47 2000
+@@ -15,6 +15,7 @@
+ // define TIMELIMIT to include code to enforce a game time limit
+ // define PRINTSCORE to include code to dump score info to stdout
+ 
++#define PRINTSCORE
+ #define TIMELIMIT
+ 
+ const int		MaxPlayers = 40;
