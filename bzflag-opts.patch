@@ -1,0 +1,14 @@
+diff -durN bzflag.orig/Make-common bzflag/Make-common
+--- bzflag.orig/Make-common	Tue Jan 11 05:00:15 2000
++++ bzflag/Make-common	Sun Apr  9 14:34:19 2000
+@@ -167,8 +167,8 @@
+ #
+ # default to optimized build
+ #
+-COPTIMIZER    = $(COPT)
+-CXXOPTIMIZER  = $(CXXOPT)
++#COPTIMIZER    = $(COPT)
++#CXXOPTIMIZER  = $(CXXOPT)
+ 
+ #
+ # slurp up configuration
