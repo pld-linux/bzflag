@@ -34,7 +34,7 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 
 %package server
 Summary:	bzflag server and console utilities
-Summary(pl):	Server bzflag i narzedzia konsolowe
+Summary(pl):	Server bzflag i narzêdzia konsolowe
 Group:		X11/Applications/Games
 Conflicts:	bzflag < 1.10.8.20041007-1
 
@@ -42,7 +42,7 @@ Conflicts:	bzflag < 1.10.8.20041007-1
 bzflag server and console utilities.
 
 %description server -l pl
-Server bzflag i narzedzia konsolowe.
+Server bzflag i narzêdzia konsolowe.
 
 %prep
 %setup -q
@@ -93,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_datadir}/%{name}/l10n/%{name}_es.po
 %lang(fr) %{_datadir}/%{name}/l10n/%{name}_fr.po
 %lang(it) %{_datadir}/%{name}/l10n/%{name}_it.po
-%lang(kg) %{_datadir}/%{name}/l10n/%{name}_kg.po
+%lang(tlh) %{_datadir}/%{name}/l10n/%{name}_kg.po
 %lang(nl) %{_datadir}/%{name}/l10n/%{name}_nl.po
 %lang(pt) %{_datadir}/%{name}/l10n/%{name}_pt.po
 %lang(sv) %{_datadir}/%{name}/l10n/%{name}_sv.po
