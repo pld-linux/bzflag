@@ -36,7 +36,7 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 
 COPTIMIZER="-DNDEBUG $RPM_OPT_FLAGS" \
 CXXOPTIMIZER="-DNDEBUG $RPM_OPT_FLAGS" \
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
