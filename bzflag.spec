@@ -1,18 +1,14 @@
 Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
-Version:	1.7g0
-Release:	3
+Version:	1.10.2.20031223
+Release:	0.1
 License:	Chris Schoeneman 1993-1999
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tgz
-# Source0-md5:	689009fa98416ac1abba4677870c7b9f
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	a4046c5af8882419deec97eea735ec96
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-paths.patch
-Patch1:		%{name}-CFLAGS.patch
-#Patch2:		%{name}-printscore.patch
-Patch3:		%{name}-lookups.patch
 Patch4:		%{name}-etc_dir.patch
 Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
@@ -33,26 +29,26 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-#%patch2 -p1
-%patch3 -p1
-%patch4 -p1
+#%patch4 -p1
 
 %build
-%{__make} INSTALL_DATA_DIR=%{_datadir}/bzflag linux
-# other, arch-dependent targets differ only in optymalization flags
-%{__make} INSTALL_DATA_DIR=%{_datadir}/bzflag  COPTFLAGS="%{rpmcflags}"
+
+%{__aclocal}
+%{__autoheader}
+%{__automake} --add-missing
+%{__autoconf}
+%configure
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
-	$RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
+	$RPM_BUILD_ROOT{%{_desktopdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
 
-install bin/* $RPM_BUILD_ROOT%{_bindir}
-install man/*.6s $RPM_BUILD_ROOT%{_mandir}/man6
-install data/* $RPM_BUILD_ROOT%{_datadir}/bzflag
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/Games
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -64,5 +60,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/bzflag
-%{_applnkdir}/Games/*
+%{_desktopdir}/Games/*
 %{_pixmapsdir}/*
