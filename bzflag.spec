@@ -7,6 +7,8 @@ Group:		X11/Games/Video
 Source:		ftp://ftp.linuxgames.com/%{name}/src/%{name}-%{version}.src.tar.gz
 Patch1:		bzflag-paths.patch
 Patch2:		bzflag-opts.patch
+Patch3:		bzflag-reuse_addr.patch
+Patch4:		bzflag-printscore.patch
 URL:		http://bzflag.linuxgames.com
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -25,6 +27,8 @@ Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 %setup -qn bzflag
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 make linux # other, arch-dependent targets differ only in optymalisation flags
