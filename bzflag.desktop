@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=BZFlag
+Comment=multiplayer 3D tank battle game
+Exec=bzflag
+Terminal=0
+Type=Application
+Icon=bzflag-l.xpm
