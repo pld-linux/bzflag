@@ -5,3 +5,4 @@ Exec=bzflag
 Terminal=0
 Type=Application
 Icon=bzflag-l.xpm
+# vi: encoding=utf-8
