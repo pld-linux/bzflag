@@ -4,10 +4,10 @@ Version:	1.7d.9
 Release:	3
 Copyright:	Chris Schoeneman 1993-1999
 Group:		X11/Games/Video
-Source:		bzflag-%{version}.src.tar.gz
+Source:		ftp://ftp.linuxgames.com/%{name}/src/%{name}-%{version}.src.tar.gz
 Patch1:		bzflag-paths.patch
 Patch2:		bzflag-opts.patch
-URL:		http://www.bigfoot.com/~bzflag/
+URL:		http://bzflag.linuxgames.com
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
