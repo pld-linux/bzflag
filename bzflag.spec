@@ -1,8 +1,8 @@
 Summary:	multiplayer 3D tank battle game
 Name:		bzflag
 Version:	1.7e1
-Release:	1
-Copyright:	Chris Schoeneman 1993-1999
+Release:	2
+License:	Chris Schoeneman 1993-1999
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
 Group(pl):	X11/Aplikacje/Gry
@@ -39,11 +39,12 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 
 %build
 %{__make} linux # other, arch-dependent targets differ only in optymalization flags
-%{__make} COPTFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O0 -g}"
+%{__make} COPTFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag,%{_applnkdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
+	$RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_pixmapsdir},%{_mandir}/man6}
 
 install bin/* $RPM_BUILD_ROOT%{_bindir}
 install man/*.6s $RPM_BUILD_ROOT%{_mandir}/man6
