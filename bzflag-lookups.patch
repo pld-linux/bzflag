@@ -1,0 +1,48 @@
+diff -durN bzflag.orig/src/net/Address.cxx bzflag/src/net/Address.cxx
+--- bzflag.orig/src/net/Address.cxx	Fri Mar  9 02:12:55 2001
++++ bzflag/src/net/Address.cxx	Thu Mar 15 15:16:22 2001
+@@ -98,7 +98,7 @@
+   return BzfString(inet_ntoa(addr));
+ }
+ 
+-#if !defined(_WIN32)
++#if 0
+ static jmp_buf alarmEnv;
+ static void		onAlarm(int)
+ {
+@@ -126,7 +126,7 @@
+     return a;
+   }
+   else {				// non-local address
+-#if !defined(_WIN32)
++#if 0
+     // set alarm to avoid waiting too long
+     SIG_PF oldAlarm = bzSignal(SIGALRM, SIG_PF(onAlarm));
+     if (oldAlarm != SIG_ERR) {
+@@ -144,7 +144,7 @@
+ 
+     hent = gethostbyname(hname);
+ 
+-#if !defined(_WIN32)
++#if 0
+     if (oldAlarm != SIG_ERR) {
+       alarm(0);
+       bzSignal(SIGALRM, oldAlarm);
+@@ -163,7 +163,7 @@
+ 
+ BzfString		Address::getHostByAddress(InAddr addr)
+ {
+-#if !defined(_WIN32)
++#if 0
+   // set alarm to avoid waiting too long
+   SIG_PF oldAlarm = bzSignal(SIGALRM, SIG_PF(onAlarm));
+   if (oldAlarm != SIG_ERR) {
+@@ -180,7 +180,7 @@
+   int addrLen = sizeof(addr);
+   struct hostent* hent = gethostbyaddr((char*)&addr, addrLen, AF_INET);
+ 
+-#if !defined(_WIN32)
++#if 0
+   if (oldAlarm != SIG_ERR) {
+     alarm(0);
+     bzSignal(SIGALRM, oldAlarm);
