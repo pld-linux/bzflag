@@ -32,7 +32,7 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 %patch4 -p1
 
 %build
-make linux # other, arch-dependent targets differ only in optymalisation flags
+%{__make} linux # other, arch-dependent targets differ only in optymalisation flags
 
 COPTIMIZER="-DNDEBUG $RPM_OPT_FLAGS" \
 CXXOPTIMIZER="-DNDEBUG $RPM_OPT_FLAGS" \
