@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=BZFlag
-Comment=multiplayer 3D tank battle game
+Comment=Multiplayer 3D tank battle game
+Comment[pl]=Wieloosobowa gra trójwymiarowa - bitwa czołgów
 Exec=bzflag
 Terminal=0
 Type=Application
