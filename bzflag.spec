@@ -5,7 +5,7 @@ Version:	1.7g0
 Release:	3
 License:	Chris Schoeneman 1993-1999
 Group:		X11/Applications/Games
-Source0:	http://download.sourceforge.net/%{name}/%{name}-%{version}.tgz
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tgz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-paths.patch
