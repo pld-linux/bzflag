@@ -9,7 +9,7 @@ Source1:	bzflag
 Patch0:		bzflag-%{version}.patch
 Patch1:		bzflag-%{version}.patch2
 URL:		http://www.bigfoot.com/~bzflag/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
