@@ -38,26 +38,28 @@ strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
 %build
 %{__make} linux # other, arch-dependent targets differ only in optymalization flags
 
-COPTFLAGS="$RPM_OPT_FLAGS" \
-%{__make}
+%{__make} COPTFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O0 -g}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}{%{_bindir},%{_datadir}{/bzflag,/applnk/Games,/pixmaps},%{_mandir}/man6}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag,%{_applnkdir}/Games,%{_pixmapsdir}},%{_mandir}/man6}
+
 install bin/* ${RPM_BUILD_ROOT}%{_bindir}
 install man/*.6s ${RPM_BUILD_ROOT}%{_mandir}/man6
 install data/* ${RPM_BUILD_ROOT}%{_datadir}/bzflag
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applnk/Games
-install package/rpm/*.xpm $RPM_BUILD_ROOT%{_datadir}/pixmaps/
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
+install package/rpm/*.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
+
+gzip -9nf README BUGS RELNOTES TODO ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README BUGS RELNOTES TODO ChangeLog 
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/bzflag
-%{_datadir}/applnk/Games/*
-%{_datadir}/pixmaps/*
+%{_applnkdir}/Games/*
+%{_pixmapsdir}/*
