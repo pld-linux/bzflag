@@ -12,7 +12,7 @@ Patch0:		%{name}-paths.patch
 Patch1:		%{name}-CFLAGS.patch
 Patch2:		%{name}-printscore.patch
 Patch3:		%{name}-lookups.patch
-Icon:		%{name}.xpm
+Icon:		bzflag.xpm
 URL:		http://bzflag.org/
 BuildRequires:	XFree86-OpenGL-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
