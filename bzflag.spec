@@ -14,9 +14,11 @@ Patch2:		%{name}-printscore.patch
 Patch3:		%{name}-lookups.patch
 Icon:		bzflag.xpm
 URL:		http://bzflag.org/
-BuildRequires:	XFree86-OpenGL-devel
+BuildRequires:	OpenGL-devel
+Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define 	_noautoreqdep	libGL.so.1 libGLU.so.1
 %define		_prefix		/usr/X11R6
 
 %description
