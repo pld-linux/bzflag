@@ -11,6 +11,7 @@ Patch2:		bzflag-opts.patch
 Patch3:		bzflag-reuse_addr.patch
 Patch4:		bzflag-printscore.patch
 URL:		http://bzflag.linuxgames.com
+BuildRequires:	XFree86-OpenGL-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
