@@ -14,9 +14,13 @@ Patch1:		%{name}-nolibs.patch
 Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
+BuildRequires:	SDL-devel >= 1.2.5
 BuildRequires:	adns-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	curl-devel >= 7.9.5
+BuildRequires:	libstdc++-devel
+BuildRequires:	ncurses-devel
 Requires:	OpenGL
 Requires:	%{name}-server = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -48,13 +52,27 @@ Server bzflag i narzêdzia konsolowe.
 %setup -q
 #%patch0 -p1
 %patch1 -p1
+sed '/LIBS="$LIBS -lncurses"/s/"$/ -I\/usr\/include\/ncurses"/' \
+	-i acinclude.m4
 
 %build
+CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
+CPPFLAGS="%{rpmcflags} -I/usr/include/ncurses"
+export CFLAGS CPPFLAGS
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--enable-curl		\
+	--enable-threads	\
+	--enable-bzadmin	\
+	--disable-timebomb	\
+	--disable-sdltest	\
+	--enable-adns		\
+	--enable-client		\
+	--enable-robots		\
+	--enable-snapping
 
 %{__make}
 
@@ -97,6 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_datadir}/%{name}/l10n/%{name}_fr.po
 %lang(it) %{_datadir}/%{name}/l10n/%{name}_it.po
 %lang(tlh) %{_datadir}/%{name}/l10n/%{name}_kg.po
+%lang(lt) %{_datadir}/%{name}/l10n/%{name}_lt.po
 %lang(nl) %{_datadir}/%{name}/l10n/%{name}_nl.po
 %lang(pt) %{_datadir}/%{name}/l10n/%{name}_pt.po
 %lang(sv) %{_datadir}/%{name}/l10n/%{name}_sv.po
@@ -104,7 +123,6 @@ rm -rf $RPM_BUILD_ROOT
 %files server
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bzadmin
-#attr(755,root,root) %{_bindir}/bzfrelay
 %attr(755,root,root) %{_bindir}/bzfs
 %{_mandir}/man5/bzw.5*
 %{_mandir}/man6/bzadmin.6*
