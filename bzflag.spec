@@ -19,6 +19,10 @@ bzflag is a networked multiplayer 3D tank battle game, combining both fast
 action and strategy. Free-for-all and capture-the-flag styles are
 available.
 
+%description -l pl
+bzflag jest sieciow± gr± czo³gow± 3D, ³±cz±c± szybk± akcjê ze strategi±. 
+Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
+
 %prep
 %setup -q -n bzflag%{version}
 %patch0 -p1
