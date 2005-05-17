@@ -5,13 +5,13 @@ Version:	2.0.0.20050117
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
 # Source0-md5:	16da32cfaac130bf68ca156d0dec2b2e
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-etc_dir.patch
 Patch1:		%{name}-nolibs.patch
-Icon:		bzflag.xpm
+Icon:		%{name}.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.2.5
@@ -21,6 +21,7 @@ BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.5
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
+BuildRequires:	sed >= 4.0
 Requires:	OpenGL
 Requires:	%{name}-server = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
