@@ -11,7 +11,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-etc_dir.patch
 Patch1:		%{name}-nolibs.patch
-#Icon:		%{name}.xpm
+Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.2.5
