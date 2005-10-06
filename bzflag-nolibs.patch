@@ -1,13 +1,13 @@
---- bzflag-1.10.6.20040515/configure.in.orig	2004-05-15 01:09:04.000000000 +0200
-+++ bzflag-1.10.6.20040515/configure.in	2004-10-17 00:32:41.714841988 +0200
-@@ -125,8 +125,8 @@
- 
- 
- # for BeOS - old network stack don't have those libs ( move it in the case switch ?)
--AC_CHECK_LIB(socket, socket)
--AC_CHECK_LIB(bind, gethostent)
-+AC_SEARCH_LIBS(socket, socket)
-+AC_SEARCH_LIBS(gethostent, bind)
- 
+--- bzflag-2.0.4.20050930/configure.ac~	2005-10-06 20:12:30.000000000 +0000
++++ bzflag-2.0.4.20050930/configure.ac	2005-10-06 20:17:07.000000000 +0000
+@@ -298,8 +298,8 @@
  AC_CHECK_LIB(m, sqrtf)
  
+ # for BeOS - old network stack don't have those libs ( move it in the case switch ?)
+-AC_CHECK_LIB([socket], [socket])
+-AC_CHECK_LIB([socket], [gethostent], [], AC_CHECK_LIB([bind], [gethostent]))
++AC_SEARCH_LIBS([socket], [socket])
++AC_SEARCH_LIBS([socket], [gethostent], [], AC_SEARCH_LIBS([bind], [gethostent]))
+ 
+ # check for various IEEE and c99 standard math functions in libm
+ AC_CHECK_LIB([m], [acosf], [AC_DEFINE([HAVE_ACOSF],[1],[libm includes acosf])])
