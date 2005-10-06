@@ -1,12 +1,19 @@
+# TODO:
+#  - some python plugin can be built, but it's hardly disabled (why ?)
+#  - there's lot of stuff in misc directory, some of them interesting
+#    (to be compiled, moved to doc, or something else)
+#  - bzfsAPI.h and other is marked ad noinst_HEADER, maybe in future it will
+#    be installed too, to allow compiling plugins externall
+#
 Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
-Version:	2.0.2.20050318
+Version:	2.0.4.20050930
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
-# Source0-md5:	d4a72c6e85299fb72d5e8ab7450b31c3
+# Source0-md5:	b91444c788996902b799f9b64efddd8f
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-etc_dir.patch
@@ -15,13 +22,11 @@ Icon:		bzflag.xpm
 URL:		http://BZFlag.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.2.5
-BuildRequires:	adns-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.9.5
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
-BuildRequires:	sed >= 4.0
 Requires:	OpenGL
 Requires:	%{name}-server = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,24 +58,21 @@ Server bzflag i narzêdzia konsolowe.
 %setup -q
 #%patch0 -p1
 %patch1 -p1
-sed '/LIBS="$LIBS -lncurses"/s/"$/ -I\/usr\/include\/ncurses"/' \
-	-i acinclude.m4
 
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 CPPFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 export CFLAGS CPPFLAGS
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoheader}
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-curl		\
 	--enable-threads	\
+	--enable-plugins	\
 	--enable-bzadmin	\
 	--disable-timebomb	\
 	--disable-sdltest	\
-	--enable-adns		\
 	--enable-client		\
 	--enable-robots		\
 	--enable-snapping
@@ -120,6 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_datadir}/%{name}/l10n/%{name}_nl.po
 %lang(pt) %{_datadir}/%{name}/l10n/%{name}_pt.po
 %lang(sv) %{_datadir}/%{name}/l10n/%{name}_sv.po
+%attr(755,root,root) %{_libdir}/*.so
 
 %files server
 %defattr(644,root,root,755)
