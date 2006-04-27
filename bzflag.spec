@@ -8,12 +8,12 @@
 Summary:	Multiplayer 3D tank battle game
 Summary(pl):	Gra 3D dla wielu graczy - czo³gi
 Name:		bzflag
-Version:	2.0.4.20050930
+Version:	2.0.6
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
-# Source0-md5:	b91444c788996902b799f9b64efddd8f
+# Source0-md5:	5754f4d0f36935ae8b3bb8a2019c39c9
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-etc_dir.patch
@@ -27,7 +27,6 @@ BuildRequires:	curl-devel >= 7.9.5
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
 Requires:	OpenGL
-Requires:	%{name}-server = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -94,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README BUGS RELNOTES TODO ChangeLog
+%doc AUTHORS README README.Linux BUGS TODO ChangeLog
 %attr(755,root,root) %{_bindir}/bzflag
 %{_mandir}/man6/bzflag.6*
 %{_desktopdir}/*.desktop
@@ -121,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_datadir}/%{name}/l10n/%{name}_nl.po
 %lang(pt) %{_datadir}/%{name}/l10n/%{name}_pt.po
 %lang(sv) %{_datadir}/%{name}/l10n/%{name}_sv.po
-%attr(755,root,root) %{_libdir}/*.so
+#%attr(755,root,root) %{_libdir}/*.so
 
 %files server
 %defattr(644,root,root,755)
