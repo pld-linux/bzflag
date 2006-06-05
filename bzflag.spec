@@ -23,6 +23,7 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.2.5
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	c-ares-devel
 BuildRequires:	curl-devel >= 7.9.5
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
