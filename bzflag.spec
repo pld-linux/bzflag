@@ -6,7 +6,7 @@
 #    be installed too, to allow compiling plugins externall
 #
 Summary:	Multiplayer 3D tank battle game
-Summary(pl):	Gra 3D dla wielu graczy - czo³gi
+Summary(pl.UTF-8):   Gra 3D dla wielu graczy - czoÅ‚gi
 Name:		bzflag
 Version:	2.0.8
 Release:	2
@@ -37,21 +37,21 @@ bzflag is a networked multiplayer 3D tank battle game, combining both
 fast action and strategy. Free-for-all and capture-the-flag styles are
 available.
 
-%description -l pl
-bzflag jest sieciow± gr± czo³gow± 3D, ³±cz±c± szybk± akcjê ze
-strategi±. Graæ mo¿na w wolnym stylu lub metod± "zdob±d¼ flagê".
+%description -l pl.UTF-8
+bzflag jest sieciowÄ… grÄ… czoÅ‚gowÄ… 3D, Å‚Ä…czÄ…cÄ… szybkÄ… akcjÄ™ ze
+strategiÄ…. GraÄ‡ moÅ¼na w wolnym stylu lub metodÄ… "zdobÄ…dÅº flagÄ™".
 
 %package server
 Summary:	bzflag server and console utilities
-Summary(pl):	Server bzflag i narzêdzia konsolowe
+Summary(pl.UTF-8):   Server bzflag i narzÄ™dzia konsolowe
 Group:		X11/Applications/Games
 Conflicts:	bzflag < 1.10.8.20041007-1
 
 %description server
 bzflag server and console utilities.
 
-%description server -l pl
-Server bzflag i narzêdzia konsolowe.
+%description server -l pl.UTF-8
+Server bzflag i narzÄ™dzia konsolowe.
 
 %prep
 %setup -q
