@@ -6,7 +6,7 @@
 #    be installed too, to allow compiling plugins externall
 #
 Summary:	Multiplayer 3D tank battle game
-Summary(pl.UTF-8):   Gra 3D dla wielu graczy - czołgi
+Summary(pl.UTF-8):	Gra 3D dla wielu graczy - czołgi
 Name:		bzflag
 Version:	2.0.8
 Release:	2
@@ -43,7 +43,7 @@ strategią. Grać można w wolnym stylu lub metodą "zdobądź flagę".
 
 %package server
 Summary:	bzflag server and console utilities
-Summary(pl.UTF-8):   Server bzflag i narzędzia konsolowe
+Summary(pl.UTF-8):	Server bzflag i narzędzia konsolowe
 Group:		X11/Applications/Games
 Conflicts:	bzflag < 1.10.8.20041007-1
 
