@@ -119,7 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_datadir}/%{name}/l10n/%{name}_es.po
 %lang(fr) %{_datadir}/%{name}/l10n/%{name}_fr.po
 %lang(it) %{_datadir}/%{name}/l10n/%{name}_it.po
-#%lang(tlh) %{_datadir}/%{name}/l10n/%{name}_kg.po
+%lang(tlh) %{_datadir}/%{name}/l10n/%{name}_kg.po
 %lang(lt) %{_datadir}/%{name}/l10n/%{name}_lt.po
 %lang(nl) %{_datadir}/%{name}/l10n/%{name}_nl.po
 %lang(pt) %{_datadir}/%{name}/l10n/%{name}_pt.po
