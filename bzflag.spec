@@ -8,12 +8,12 @@
 Summary:	Multiplayer 3D tank battle game
 Summary(pl.UTF-8):	Gra 3D dla wielu graczy - czołgi
 Name:		bzflag
-Version:	2.0.8
-Release:	3
+Version:	2.0.10
+Release:	1
 License:	LGPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
-# Source0-md5:	7963cc1de7144e76a9426b6f23d7c2c8
+# Source0-md5:	64993b181e72ea713f813d0a78576b70
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-etc_dir.patch
