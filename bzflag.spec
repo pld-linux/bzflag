@@ -26,6 +26,7 @@ BuildRequires:	automake
 BuildRequires:	c-ares-devel
 BuildRequires:	curl-devel >= 7.9.5
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
