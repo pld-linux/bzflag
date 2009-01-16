@@ -4,6 +4,7 @@
 #    (to be compiled, moved to doc, or something else)
 #  - bzfsAPI.h and other is marked ad noinst_HEADER, maybe in future it will
 #    be installed too, to allow compiling plugins externall
+#  - finish init script (currently runs server from root)
 #
 Summary:	Multiplayer 3D tank battle game
 Summary(pl.UTF-8):	Gra 3D dla wielu graczy - czołgi
@@ -16,6 +17,8 @@ Source0:	http://dl.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
 # Source0-md5:	1228754cac3eaacd4badba5319f47b41
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Source3:	%{name}.init
+Source4:	%{name}.sysconfig
 Patch0:		%{name}-etc_dir.patch
 Patch1:		%{name}-nolibs.patch
 URL:		http://BZFlag.org/
@@ -86,13 +89,16 @@ export CFLAGS CPPFLAGS
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
-	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},%{_mandir}/man6}
+	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},%{_mandir}/man6} \
+	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE4} $RPM_BUILD_ROOT/etc/rc.d/init.d/bzflag
+install %{SOURCE5} $RPM_BUILD_ROOT/etc/syscofngi/bzflag
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -135,3 +141,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man5/bzw.5*
 %{_mandir}/man6/bzadmin.6*
 %{_mandir}/man6/bzf[!l]*
+%attr(754,root,root) /etc/rc.d/init.d/bzflag
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/bzflag
