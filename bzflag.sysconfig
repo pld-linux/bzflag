@@ -1,0 +1,2 @@
+
+BZFLAG_OPTIONS="-fb -h -handicap -j +r -sb -st 15 -t -s -a 50 38 -mps 15 -advertise NONE"
