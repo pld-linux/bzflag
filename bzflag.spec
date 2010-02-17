@@ -9,12 +9,12 @@
 Summary:	Multiplayer 3D tank battle game
 Summary(pl.UTF-8):	Gra 3D dla wielu graczy - czołgi
 Name:		bzflag
-Version:	2.0.12
+Version:	2.0.14
 Release:	1
 License:	LGPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
-# Source0-md5:	1228754cac3eaacd4badba5319f47b41
+# Source0-md5:	15a28cd55e46f0f39a7c8b8eea7464c6
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	%{name}.init
@@ -97,8 +97,8 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE4} $RPM_BUILD_ROOT/etc/rc.d/init.d/bzflag
-install %{SOURCE5} $RPM_BUILD_ROOT/etc/syscofngi/bzflag
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/bzflag
+install %{SOURCE4} $RPM_BUILD_ROOT/etc/sysconfig/bzflag
 
 %clean
 rm -rf $RPM_BUILD_ROOT
