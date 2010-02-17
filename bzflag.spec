@@ -27,6 +27,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	c-ares-devel
 BuildRequires:	curl-devel >= 7.9.5
+BuildRequires:	glew-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
