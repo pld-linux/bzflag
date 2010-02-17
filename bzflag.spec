@@ -11,14 +11,13 @@ Summary(pl.UTF-8):	Gra 3D dla wielu graczy - czołgi
 Name:		bzflag
 Version:	2.0.14
 Release:	1
-License:	LGPL
+License:	LGPL v2.1
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
 # Source0-md5:	15a28cd55e46f0f39a7c8b8eea7464c6
 Source1:	%{name}.desktop
-Source2:	%{name}.png
-Source3:	%{name}.init
-Source4:	%{name}.sysconfig
+Source2:	%{name}.init
+Source3:	%{name}.sysconfig
 Patch0:		%{name}-etc_dir.patch
 Patch1:		%{name}-nolibs.patch
 URL:		http://BZFlag.org/
@@ -96,9 +95,10 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/bzflag
-install %{SOURCE4} $RPM_BUILD_ROOT/etc/sysconfig/bzflag
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/bzflag
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/bzflag
+
+install data/bzflag-48x48.png $RPM_BUILD_ROOT%{_pixmapsdir}/bzflag.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,8 +108,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README README.Linux BUGS TODO ChangeLog
 %attr(755,root,root) %{_bindir}/bzflag
 %{_mandir}/man6/bzflag.6*
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%{_desktopdir}/bzflag.desktop
+%{_pixmapsdir}/bzflag.png
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*.xpm
 %{_datadir}/%{name}/*.wav
