@@ -6,8 +6,6 @@
 # description:	bzflag game server
 #
 # processname:	bzfs
-# config:
-# pidfile:
 
 # Source function library.
 . /etc/rc.d/init.d/functions
