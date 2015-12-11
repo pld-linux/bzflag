@@ -4,13 +4,13 @@
 #    (to be compiled, moved to doc, or something else)
 #  - bzfsAPI.h and other is marked ad noinst_HEADER, maybe in future it will
 #    be installed too, to allow compiling plugins externall
-#  - finish init script (currently runs server from root)
+#  - finish init script (currently runs server from root)!
 #
 Summary:	Multiplayer 3D tank battle game
 Summary(pl.UTF-8):	Gra 3D dla wielu graczy - czołgi
 Name:		bzflag
 Version:	2.4.0
-Release:	7
+Release:	8
 License:	LGPL v2.1
 Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
@@ -95,11 +95,11 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/bzflag} \
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/bzflag
-install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/bzflag
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install -p %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/bzflag
+cp -p %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/bzflag
 
-install data/bzflag-48x48.png $RPM_BUILD_ROOT%{_pixmapsdir}/bzflag.png
+cp -p data/bzflag-48x48.png $RPM_BUILD_ROOT%{_pixmapsdir}/bzflag.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT

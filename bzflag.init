@@ -33,7 +33,7 @@ start() {
 	if [ ! -f /var/lock/subsys/bzflag ]; then
 		msg_starting bzflag
 		# fixme, don't start from root
-		daemon --fork "/usr/bin/bzfs -pidfile /var/run/bzfs.pid $BZFLAG_OPTIONS > /var/log/bzflag.log 2>&1"
+		daemon --fork /bin/sh -c "/usr/bin/bzfs -pidfile /var/run/bzfs.pid $BZFLAG_OPTIONS > /var/log/bzflag.log 2>&1"
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/bzflag
 	else
