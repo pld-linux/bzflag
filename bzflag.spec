@@ -60,7 +60,7 @@ Server bzflag i narzędzia konsolowe.
 %prep
 %setup -q
 #%patch0 -p1
-%patch1 -p1
+%patch -P1 -p1
 
 :> m4/mkdirp.m4
 :> m4/sdl.m4
