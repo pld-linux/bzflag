@@ -10,7 +10,7 @@ Summary:	Multiplayer 3D tank battle game
 Summary(pl.UTF-8):	Gra 3D dla wielu graczy - czołgi
 Name:		bzflag
 Version:	2.4.30
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Applications/Games
 Source0:	https://download.bzflag.org/bzflag/source/%{version}/%{name}-%{version}.tar.bz2
@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README README.Linux BUGS TODO ChangeLog
+%doc AUTHORS README README.Linux ChangeLog
 %attr(755,root,root) %{_bindir}/bzflag
 %{_mandir}/man6/bzflag.6*
 %{_desktopdir}/bzflag.desktop
@@ -116,8 +116,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/fonts
 %{_datadir}/%{name}/fonts/*
 %dir %{_datadir}/%{name}/l10n
-%{_datadir}/%{name}/l10n/%{name}_xx.po
-%{_datadir}/%{name}/l10n/ISO-639-2_values_8bits.txt
 %lang(cs) %{_datadir}/%{name}/l10n/%{name}_cs_CZ.po
 %lang(da) %{_datadir}/%{name}/l10n/%{name}_da.po
 %lang(de) %{_datadir}/%{name}/l10n/%{name}_de.po
@@ -130,6 +128,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(lt) %{_datadir}/%{name}/l10n/%{name}_lt.po
 %lang(nl) %{_datadir}/%{name}/l10n/%{name}_nl.po
 %lang(pt) %{_datadir}/%{name}/l10n/%{name}_pt.po
+%lang(ru) %{_datadir}/%{name}/l10n/%{name}_ru.po
+%lang(sk) %{_datadir}/%{name}/l10n/%{name}_sk.po
 %lang(sv) %{_datadir}/%{name}/l10n/%{name}_sv.po
 #%attr(755,root,root) %{_libdir}/*.so
 
